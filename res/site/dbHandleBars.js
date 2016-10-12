@@ -14,5 +14,5 @@ $(function(){
     var theCompiledHtml = theTemplate(context);
 
     $(document.body).append(theCompiledHtml);
-    //test
+
 });
