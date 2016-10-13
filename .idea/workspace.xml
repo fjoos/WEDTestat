@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f3d65808-3199-4f6f-ab06-34655607eb3c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/service/noteService.js" afterPath="$PROJECT_DIR$/res/service/noteService.js" />
     </list>
     <ignored path="WEDTestat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -281,7 +280,7 @@
       <workItem from="1476101173600" duration="534000" />
       <workItem from="1476169541892" duration="2144000" />
       <workItem from="1476267760400" duration="152000" />
-      <workItem from="1476346098197" duration="302000" />
+      <workItem from="1476346098197" duration="413000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1476346196600</created>
@@ -290,11 +289,18 @@
       <option name="project" value="LOCAL" />
       <updated>1476346196600</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test">
+      <created>1476346406080</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1476346406080</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27466000" />
+    <option name="totallyTimeSpent" value="27577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
