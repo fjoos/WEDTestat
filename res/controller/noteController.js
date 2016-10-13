@@ -13,7 +13,7 @@ module.exports.showIndex = function(req, res){
         res.write(data);
         res.end();
     });
-};
+};//test
 
 module.exports.showNotePad = function(req, res){
 //note erstellen und hinzufügen
