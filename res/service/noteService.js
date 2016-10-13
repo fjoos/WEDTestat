@@ -23,7 +23,7 @@ function publicAddNote(title, description, importance, finishedTill, callback){
 function publicDelete(id, callback){
     db.remove({_id: id}, {}, function(err, doc){
         //was passiert nach dem löschen
-    })test fick der michi dia hoe
+    })
 }
 
 function publicEdit(id, title, description, importance, finishedTill, callback){

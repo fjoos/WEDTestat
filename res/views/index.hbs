@@ -1,0 +1,10 @@
+<html>
+<h1>Notizblock</h1>
+<p>Meine Notizen</p>
+{{#if title}}
+    <p>Bestellte Pizza: {{title}}</p>
+    <p>Wichtigkeit: {{importance}}</p>
+    <p>Fertig bis: {{finishedTill}}</p>}
+{{/if}}
+<form action='/notes' method='get'><input type='submit' value='Neue Notiz'></form>
+</html>
