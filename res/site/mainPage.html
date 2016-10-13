@@ -8,13 +8,19 @@
 <h1>Notizblock</h1>
 <p>Meine Notizen</p>
 
+
+
+<form action='/notes' method='get'><input type='submit' value='Neue Notiz'></form>
+<form action="/notes?byFinished" method="get"><input type="submit" value="By finish Date"></form>
+<form action="/notes?byCreated" method="get"><input type="submit" value="By created Date"></form>
+<form action="/notes?byImportance" method="get"><input type="submit" value="By Importance"></form>
+<form action="/notes?style" method="get"><input type="submit" value="Style Switcher"></form>
+<form action="/notes?byImportance" method="get"><input type="submit" value="Alle anzeigen"></form>
+
 <script src="./dbHandleBars.js" type="text/x-handlebars-template">
     {{#each notes}}
     <p>{{title}} {{importance}} {{finishedTill}}</p>
     {{/each}}
 </script>
-
-<form action='/notes' method='get'><input type='submit' value='Neue Notiz'></form>
-
 </body>
 </html>
