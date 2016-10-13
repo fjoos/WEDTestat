@@ -5,11 +5,17 @@ var service = require("../service/noteService.js");
 
 module.exports.showIndex = function(req, res){
     //startseite anzeigen
-    res.render("index");
+    service.getAll(function(err, note){
+        if(note){
+            res.render('index', {title: 'Alle Notizen', note : note});
+        }else{
+            res.render('index', {title: 'Alle Notizen'});
+        }
+    });
 };
 
 module.exports.showNotePad = function(req, res){
-//note erstellen und hinzufügen
+//noteerstellview aufrufen
     res.render("newNote");
 };
 

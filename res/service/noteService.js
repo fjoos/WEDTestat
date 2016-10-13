@@ -38,10 +38,10 @@ function publicGet(id, callback)
 });
 }
 */
-function publicAll()
+function publicAll(callback)
 {
-    db.find({}, function (err, docs) {
-        callback( err, docs);
+    db.find({}, function (err, note) {
+        callback(err, note);
     });
 }
 

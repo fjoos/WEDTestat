@@ -6,7 +6,7 @@ var app = express();
 //app.engine('hbs', hbs.express4({ partialsDir: __dirname + '/views/partials'}));
 app.engine('hbs', hbs.express4());
 app.set('view engine', 'hbs');
-app.set('site', __dirname + '/site');
+app.set('views', __dirname + '/views');
 
 var router = express.Router();
 
