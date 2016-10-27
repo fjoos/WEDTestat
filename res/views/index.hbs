@@ -3,10 +3,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <h1>Notizblock</h1>
+<div id = "container">
+    <form id= "order1" action='/' method='order1'><input type='submit' value='by Erstelldatum'></form>
+    <form id= "order2" action='/' method='order2'><input type='submit' value='by Fertigdatum'></form>
+    <form id= "order3" action='/' method='order3'><input type='submit' value='by Wichtigkeit'></form>
+    <form id= "makeInvivible" action='/' method='invisible'><input type='submit' value='Fertige verbergen'></form>
+    <form id= "styler" action='/' method='style'><input type='submit' value='Style Wechseln'></form>
 
+</div>
 <header>{{title}}</header>
 {{#if note}}
     {{#each note}}
+        <form id="fin" action='/' method='edit'><input type='checkbox' value='Fertig'>Fertig</form>
         <div class="title"><p>Titel: {{title}}</p></div>
         <div class="importance"><p>Wichtigkeit: {{importance}}</p></div>
         <div class="finishedTill"><p>Fertig bis: {{finishedTill}}</p></div>
@@ -15,10 +23,11 @@
         {{else}}
         Nein
         {{/if}}</p></div>
+        <form id="edit" action='/edit' method='get'><input type='submit' value='Editieren'></form>
     {{/each}}
 
 {{else}}
     <p>Keine Notizen!</p>
 {{/if}}
-<form action='/notes' method='get'><input type='submit' value='Neue Notiz'></form>
+<form id= "newNote" action='/notes' method='get'><input type='submit' value='Neue Notiz'></form>
 </html>

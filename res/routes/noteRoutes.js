@@ -8,6 +8,7 @@ var notes = require('../controller/noteController.js');
 
 router.get("/", notes.showIndex);
 router.get("/notes", notes.showNotePad);
+router.get("/edit", notes.editNote);
 router.post("/", notes.createNote);
 
 module.exports = router;
