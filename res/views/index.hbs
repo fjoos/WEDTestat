@@ -14,7 +14,6 @@
 <header>{{title}}</header>
 {{#if note}}
     {{#each note}}
-        <form id="fin" action='/' method='edit'><input type='checkbox' value='Fertig'>Fertig</form>
         <div class="title"><p>Titel: {{title}}</p></div>
         <div class="importance"><p>Wichtigkeit: {{importance}}</p></div>
         <div class="finishedTill"><p>Fertig bis: {{finishedTill}}</p></div>
@@ -23,7 +22,7 @@
         {{else}}
         Nein
         {{/if}}</p></div>
-        <form id="edit" action='/edit' method='get'><input type='submit' value='Editieren'></form>
+        <form id="edit" action='/edit/{{_id}}' method='get'><input type='submit' value='Editieren'></form>
     {{/each}}
 
 {{else}}

@@ -26,10 +26,10 @@ function publicDelete(id, callback){
         //was passiert nach dem löschen
     })
 }
-
-function publicEdit(id, title, description, importance, finishedTill, callback){
-    db.update({_id: id}, {$set: {"title": title, "description": description, "importance": importance, "finishedTill": finishedTill}}, {}, function(err, doc){
-       //was passiert nach dem editieren
+*/
+function publicEdit(id, title, description, importance, finishedTill, finished, callback){
+    db.update({_id: id}, {$set: {"title": title, "description": description, "importance": importance, "finishedTill": finishedTill, "finished": finished}}, function(err, doc){
+        callback(err, doc);
     });
 }
 
@@ -38,7 +38,9 @@ function publicGet(id, callback)
     callback( err, doc);
 });
 }
-*/
+
+//TODO weiter machen
+
 function publicAll(callback)
 {
     db.find({}, function (err, note) {
@@ -46,4 +48,4 @@ function publicAll(callback)
     });
 }
 
-module.exports = {add : publicAddNote, getAll : publicAll};
+module.exports = {add : publicAddNote, getAll : publicAll, get : publicGet, set : publicEdit};
