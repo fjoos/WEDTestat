@@ -1,0 +1,14 @@
+<html>
+<h1>Notiz ändern</h1>
+<div class="title"><p>Titel: {{title}}</p></div>
+<div class="importance"><p>Wichtigkeit: {{importance}}</p></div>
+<div class="finishedTill"><p>Fertig bis: {{finishedTill}}</p></div>
+<div class="finished"><p>Erledigt: {{#if finished}}
+    Ja
+{{else}}
+    Nein
+{{/if}}</p></div>
+
+<form action="/" method="post"><input type="submit" value="Speichern"></form>
+
+</html>

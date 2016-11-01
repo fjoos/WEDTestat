@@ -1,35 +1,104 @@
 <html>
-
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+
+        #container{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0;
+        }
+
+        #container2{
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .space {
+            flex: 1;
+        }
+
+        .container3{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container4{
+            flex:0.9;
+
+        }
+
+        .container5{
+            display: flex;
+            justify-content: space-between;
+
+        }
+        .container6{
+            flex-direction: column;
+        }
+
+        .textarea{
+            width: 100%;
+        }
+
+        .edit{
+            height: 10%;
+        }
+
+
+    </style>
 </head>
-
-<body>
 <h1>Notizblock</h1>
-<div id = "container">
-    <form action='/sort/created/' method='get'><input type='submit' value='by Erstelldatum'></form>
-    <form action='/sort/finishedTill/' method='get'><input type='submit' value='by Fertigdatum'></form>
-    <form action='/sort/importance/' method='get'><input type='submit' value='by Wichtigkeit'></form>
-    <form action='/' method='get'><input type='submit' value='Fertige verbergen'></form>
-    <form action='/' method='style'><input type='submit' value='Style Wechseln'></form>
 
+<div id="container">
+    <form id= "newNote" action='/notes' method='get'><input type='submit' value='Neue Notiz'></form>
+    <form id= "styler" action='/' method='style'><input type='submit' value='Style Wechseln'></form>
 </div>
+<div id="container2">
+    <form id= "order2" action='/' method='order1'><input type='submit' value='by Fertigdatum'></form>
+    <form id= "order1" action='/' method='order2'><input type='submit' value='by Erstelldatum'></form>
+    <form id= "order3" action='/' method='order3'><input type='submit' value='by Wichtigkeit'></form>
+    <div class="space"></div>
+  <form id= "makeInvivible" action='/' method='invisible'><input type='submit' value='Fertige verbergen'></form>
+</div>
+
+
+
 <header>{{title}}</header>
 {{#if note}}
+
     {{#each note}}
-        <div class="title"><p>Titel: {{title}}</p></div>
-        <div class="importance"><p>Wichtigkeit: {{importance}}</p></div>
-        <div class="finishedTill"><p>Fertig bis: {{finishedTill}}</p></div>
-        <div class="finished"><p>Erledigt: {{#if finished}}
-        Ja
-        {{else}}
-        Nein
-        {{/if}}</p></div>
-        <form id="edit" action='/edit/{{_id}}' method='get'><input type='submit' value='Editieren'></form>
+        <div class="container3">
+            <div class="container6">
+                {{#if finished}}
+                    <label><input type="checkbox" checked="true"  value="Finished" id="check1">Finished</label>
+                {{else}}
+                    <p>{{finishedTill}}</p>
+                    <label><input type="checkbox" value="Finished" id="check2">Finished</label>
+                {{/if}}
+
+
+            </div>
+
+
+
+            <div class="container4">
+                <div class="container5">
+                    <p>{{title}}</p>
+                    <p>{{importance}}</p>
+                </div>
+
+                <textarea class="textarea" readonly>{{description}}</textarea>
+
+            </div>
+
+         <form action='/edit/{{_id}}' method='get'><input class="edit" type='submit' value='Editieren'></form>
+
+        </div>
     {{/each}}
+
 {{else}}
     <p>Keine Notizen!</p>
 {{/if}}
-<form id= "newNote" action='/notes' method='get'><input type='submit' value='Neue Notiz'></form>
-</body>
 </html>
