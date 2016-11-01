@@ -1,4 +1,10 @@
 <html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
 <h1>Neue Notiz</h1>
 <form action='/' method='post'>
     <dt>
@@ -12,11 +18,11 @@
         </dd>
         <dd>
             Wichtigkeit
-            <input name='importance' placeholder='importance'>
+            <input name='importance' type="number" placeholder='importance'>
         </dd>
         <dd>
             Fertig bis
-            <input name='finishedTill' placeholder='finishedTill'>
+            <input name='finishedTill' type="date" placeholder='finishedTill'>
         </dd>
         <dd>
             <input name="finished" type="checkbox"> Erledigt!
@@ -27,5 +33,5 @@
     </dt>
 </form>
 <form action='/' method='get'><input type='submit' value='Abbrechen'></form>
-
+</body>
 </html>

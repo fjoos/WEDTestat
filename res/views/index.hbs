@@ -1,14 +1,17 @@
 <html>
+
 <head>
     <link rel="stylesheet" href="style.css">
 </head>
+
+<body>
 <h1>Notizblock</h1>
 <div id = "container">
-    <form id= "order1" action='/' method='order1'><input type='submit' value='by Erstelldatum'></form>
-    <form id= "order2" action='/' method='order2'><input type='submit' value='by Fertigdatum'></form>
-    <form id= "order3" action='/' method='order3'><input type='submit' value='by Wichtigkeit'></form>
-    <form id= "makeInvivible" action='/' method='invisible'><input type='submit' value='Fertige verbergen'></form>
-    <form id= "styler" action='/' method='style'><input type='submit' value='Style Wechseln'></form>
+    <form action='/sort/created/' method='get'><input type='submit' value='by Erstelldatum'></form>
+    <form action='/sort/finishedTill/' method='get'><input type='submit' value='by Fertigdatum'></form>
+    <form action='/sort/importance/' method='get'><input type='submit' value='by Wichtigkeit'></form>
+    <form action='/' method='get'><input type='submit' value='Fertige verbergen'></form>
+    <form action='/' method='style'><input type='submit' value='Style Wechseln'></form>
 
 </div>
 <header>{{title}}</header>
@@ -24,9 +27,9 @@
         {{/if}}</p></div>
         <form id="edit" action='/edit/{{_id}}' method='get'><input type='submit' value='Editieren'></form>
     {{/each}}
-
 {{else}}
     <p>Keine Notizen!</p>
 {{/if}}
 <form id= "newNote" action='/notes' method='get'><input type='submit' value='Neue Notiz'></form>
+</body>
 </html>

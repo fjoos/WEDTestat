@@ -4,15 +4,28 @@
 var Datastore = require('nedb');
 var db = new Datastore({ filename: './data/note.db', autoload: true });
 
-function Note(title, description, importance, finishedTill, finished){
+function Note(title, description, importance, finishedTill, finished)
+{
+    this.created = Date.now().toString();
     this.title = title;
     this.description = description;
     this.importance = importance;
     this.finishedTill = finishedTill;
     this.finished = finished;
+
+    function getCreation(){
+        return created;
+    }
+    function getImportance(){
+        return importance;
+    }
+    function getFinishedTill(){
+        return finishedTill;
+    }
 }
 
-function publicAddNote(title, description, importance, finishedTill, finished,callback){
+function publicAddNote(title, description, importance, finishedTill, finished, callback)
+{
     var note = new Note(title, description, importance, finishedTill, finished);
     db.insert(note, function(err, doc){
         if(callback){
@@ -20,13 +33,14 @@ function publicAddNote(title, description, importance, finishedTill, finished,ca
         }
     });
 }
-/*
-function publicDelete(id, callback){
+
+function publicDelete(id, callback)
+{
     db.remove({_id: id}, {}, function(err, doc){
-        //was passiert nach dem löschen
-    })
+        callback(err, doc);
+    });
 }
-*/
+
 function publicEdit(id, title, description, importance, finishedTill, finished, callback){
     db.update({_id: id}, {$set: {"title": title, "description": description, "importance": importance, "finishedTill": finishedTill, "finished": finished}}, function(err, doc){
         callback(err, doc);
@@ -39,7 +53,6 @@ function publicGet(id, callback)
 });
 }
 
-//TODO weiter machen
 
 function publicAll(callback)
 {
@@ -48,4 +61,4 @@ function publicAll(callback)
     });
 }
 
-module.exports = {add : publicAddNote, getAll : publicAll, get : publicGet, set : publicEdit};
+module.exports = {add : publicAddNote, getAll : publicAll, get : publicGet, set : publicEdit, delete : publicDelete};
