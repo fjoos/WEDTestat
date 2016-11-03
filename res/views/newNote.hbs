@@ -1,28 +1,40 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
 <h1>Neue Notiz</h1>
 <form action='/' method='post'>
     <dt>
-        <dd>
-            Titel
-            <input name='title' placeholder='title Note'>
-        </dd>
-        <dd>
-            Beschreibung
-            <input name='description' placeholder='description'>
-        </dd>
-        <dd>
-            Wichtigkeit
-            <input name='importance' type="number" placeholder='importance'>
-        </dd>
-        <dd>
-            Fertig bis
-            <input name='finishedTill' type="date" placeholder='finishedTill'>
-        </dd>
-        <dd>
-            <input name="finished" type="checkbox"> Erledigt!
-        </dd>
-        <dd>
-            <input type='submit' value='Speichern'>
-        </dd>
+    <dd>
+        Titel
+        <input name='title' placeholder='title Note' required>
+    </dd>
+    <dd>
+        Beschreibung
+        <input name='description' placeholder='description' required>
+    </dd>
+    <dd>
+        Wichtigkeit
+
+        <input type="range" name="importanceInputName" id="importanceInputId" value="3" min="1" max="5" oninput="importanceOutputId.value = importanceInputId.value">
+        <output name="importanceOutputName" id="importanceOutputId">3</output>
+
+    </dd>
+    <dd>
+        Fertig bis
+        <input name='finishedTill' type="date" placeholder='finishedTill' required>
+    </dd>
+    <dd>
+        <input name="finished" type="checkbox"> Erledigt!
+    </dd>
+    <dd>
+        <input type='submit' value='Speichern'>
+    </dd>
     </dt>
 </form>
 <form action='/' method='get'><input type='submit' value='Abbrechen'></form>
+</body>
+</html>
