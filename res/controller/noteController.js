@@ -32,12 +32,12 @@ module.exports.showIndex = function(req, res){
 };
 
 module.exports.showNotePad = function(req, res){
-    res.render('newNote');
+    res.render('new');
 };
 
 module.exports.editNote = function(req, res){
     service.get(req.params.id, function(err, note){
-            res.render('editNote', note);
+            res.render('edit', note);
     });
 };
 
