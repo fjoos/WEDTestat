@@ -1,0 +1,42 @@
+#container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+#container2{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.space {
+    flex: 1;
+}
+
+.container3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container4{
+    flex:0.9;
+
+}
+
+.container5{
+    display: flex;
+    justify-content: space-between;
+
+}
+.container6{
+    flex-direction: column;
+}
+
+.textarea{
+    width: 100%;
+}
+
+.edit{
+    height: 10%;
+}

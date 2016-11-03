@@ -1,0 +1,31 @@
+<body>
+<h1>Notiz Editieren</h1>
+<form action='/edit/{{_id}}/' method='post'>
+    <dd>
+        Titel:
+        <input title='Titel' type="text" name='title' value="{{title}}" required>
+    </dd>
+    <dd>
+        Beschreibung:
+        <input title='Beschreibung' type="text" name='description' value="{{description}}" required>
+    </dd>
+    <dd>
+        Wichtigkeit:
+        <input type="range" name="importanceInputName" id="importanceInputId" value="{{importance}}" min="1" max="5" oninput="importanceOutputId.value = importanceInputId.value">
+        <output name="importanceOutputName" id="importanceOutputId">{{importance}}</output>
+    </dd>
+    <dd>
+        Fertig bis:
+        <input title='Fertig bis' type="date" name='finishedTill' value="{{finishedTill}}" required>
+    </dd>
+    <dd>
+        <input name='finished' type="checkbox" checked='{{finished}}'> Erledigt!
+    </dd>
+    <dd>
+        <input type='submit' value='Speichern'>
+    </dd>
+    </dt>
+</form>
+<form action='/del/{{_id}}/' method='post'><input type='submit' value='Löschen'></form>
+<form action='/' method='get'><input type='submit' value='Abbrechen'></form>
+</body>
