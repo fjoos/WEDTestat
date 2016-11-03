@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+
+// now you should have the require helper
 var index = require('./routes/noteRoutes');
 var users = require('./routes/users');
 
@@ -47,3 +49,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+

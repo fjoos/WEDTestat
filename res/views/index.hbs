@@ -2,52 +2,41 @@
 <h1>Notizblock</h1>
 
 <div id="container">
-    <form id= "newNote" action='/notes' method='get'><input type='submit' value='Neue Notiz'></form>
+    <form id= "newNote" action='/notes/' method='get'><input type='submit' value='Neue Notiz'></form>
     <form id= "styler" action='/' method='style'><input type='submit' value='Style Wechseln'></form>
 </div>
 <div id="container2">
     <form id= "order2" action='/sort/finishedTill/' method='order1'><input type='submit' value='by Fertigdatum'></form>
-    <form id= "order1" action='/sort/created' method='order2'><input type='submit' value='by Erstelldatum'></form>
-    <form id= "order3" action='/sort/importance' method='order3'><input type='submit' value='by Wichtigkeit'></form>
+    <form id= "order1" action='/sort/created/' method='order2'><input type='submit' value='by Erstelldatum'></form>
+    <form id= "order3" action='/sort/importance/' method='order3'><input type='submit' value='by Wichtigkeit'></form>
     <div class="space"></div>
-    <form id= "makeInvivible" action='/sort/invisible' method='invisible'><input type='submit' value='Fertige verbergen'></form>
+    <form id= "makeInvivible" action='/invisible' method='invisible'><input type='submit' value='Fertige verbergen'></form>
 </div>
 
 
 
 <header>{{title}}</header>
 {{#if note}}
-
     {{#each note}}
         <div class="container3">
             <div class="container6">
                 {{#if finished}}
-                    <label><input type="checkbox" checked="true" value="Finished" id="check1">Finished</label>
+                    <label><input type="checkbox" id="check1" checked>Finished</label>
                 {{else}}
-                    <p>{{finishedTill}}</p>
-                    <label><input type="checkbox" value="Finished" id="check2">Finished</label>
+                    <label><input type="hidden" id="check2">Finished</label>
+                    <p>Zu Erledigen bis: {{finishedTill}}</p>
                 {{/if}}
-
-
             </div>
-
-
-
             <div class="container4">
                 <div class="container5">
                     <p>{{title}}</p>
                     <p>{{importance}}</p>
                 </div>
-
                 <textarea class="textarea" readonly>{{description}}</textarea>
-
             </div>
-
             <form action='/edit/{{_id}}' method='get'><input class="edit" type='submit' value='Editieren'></form>
-
         </div>
     {{/each}}
-
 {{else}}
     <p>Keine Notizen!</p>
 {{/if}}

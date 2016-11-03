@@ -3,7 +3,7 @@
  */
 var service = require("../service/noteService.js");
 var reverse = false;
-
+var invisible = false;
 module.exports.showIndex = function(req, res){
     service.getAll(function(err, note) {
         if(note){
@@ -23,9 +23,12 @@ module.exports.showIndex = function(req, res){
                         return (sorting(a.created, b.created))
                     });
                     break;
-
             }
-            res.render('index', {title: 'Alle Notizen', note : note});
+            if(invisible){
+                res.render('index', {title: 'Alle Notizen', note : note.filter(function(a){return a.finished != '1'})});
+            }else{
+                res.render('index', {title: 'Alle Notizen', note : note});
+            }
         }else{
             res.render('index', {title: 'Alle Notizen'});
         }});
@@ -69,19 +72,28 @@ module.exports.order = function(req, res){
     res.redirect('/');
 };
 
+module.exports.invisible = function(req, res){
+    invisible = !invisible;
+    res.redirect('/');
+};
+
 
 function sorting(a, b){
     if(reverse){
         if(a>b){
             return -1;
-        }else{
+        }else if(a<b){
             return 1;
+        }else{
+            return 0;
         }
     }else{
         if(a>b){
             return 1;
-        }else{
+        }else if(a<b){
             return -1;
+        }else{
+            return 0;
         }
     }
 }
