@@ -2,7 +2,7 @@
  * Created by Enzo on 06.10.2016.
  */
 var Datastore = require('nedb');
-var db = new Datastore({ filename: './data/note.db', autoload: true });
+var db = new Datastore({ filename: "../data/note.db", autoload: true });
 
 function Note(title, description, importance, finishedTill, finished)
 {
