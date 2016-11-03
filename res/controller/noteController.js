@@ -5,7 +5,6 @@ var service = require("../service/noteService.js");
 var reverse = false;
 
 module.exports.showIndex = function(req, res){
-    //startseite anzeigen
     service.getAll(function(err, note) {
         if(note){
             switch (req.session.order) {
@@ -26,19 +25,19 @@ module.exports.showIndex = function(req, res){
                     break;
 
             }
-            res.render("index", {title: 'Alle Notizen', note : note});
+            res.render('index', {title: 'Alle Notizen', note : note});
         }else{
-            res.render("index", {title: 'Alle Notizen'});
+            res.render('index', {title: 'Alle Notizen'});
         }});
 };
 
 module.exports.showNotePad = function(req, res){
-    res.render("newNote");
+    res.render('newNote');
 };
 
 module.exports.editNote = function(req, res){
     service.get(req.params.id, function(err, note){
-            res.render("editNote", note);
+            res.render('editNote', note);
     });
 };
 
@@ -73,9 +72,17 @@ module.exports.order = function(req, res){
 
 function sorting(a, b){
     if(reverse){
-        return a > b ? -1 : 1;
+        if(a>b){
+            return -1;
+        }else{
+            return 1;
+        }
     }else{
-        return a > b ? 1 : -1;
+        if(a>b){
+            return 1;
+        }else{
+            return -1;
+        }
     }
 }
 

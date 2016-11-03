@@ -1,54 +1,3 @@
-<html>
-<head>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-
-        #container{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0;
-        }
-
-        #container2{
-            display: flex;
-            justify-content: flex-start;
-        }
-
-        .space {
-            flex: 1;
-        }
-
-        .container3{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .container4{
-            flex:0.9;
-
-        }
-
-        .container5{
-            display: flex;
-            justify-content: space-between;
-
-        }
-        .container6{
-            flex-direction: column;
-        }
-
-        .textarea{
-            width: 100%;
-        }
-
-        .edit{
-            height: 10%;
-        }
-
-
-    </style>
-</head>
 <h1>Notizblock</h1>
 
 <div id="container">
@@ -56,9 +5,9 @@
     <form id= "styler" action='/' method='style'><input type='submit' value='Style Wechseln'></form>
 </div>
 <div id="container2">
-    <form id= "order2" action='/' method='order1'><input type='submit' value='by Fertigdatum'></form>
-    <form id= "order1" action='/' method='order2'><input type='submit' value='by Erstelldatum'></form>
-    <form id= "order3" action='/' method='order3'><input type='submit' value='by Wichtigkeit'></form>
+    <form id= "order2" action='/sort/finishedTill/' method='order1'><input type='submit' value='by Fertigdatum'></form>
+    <form id= "order1" action='/sort/created' method='order2'><input type='submit' value='by Erstelldatum'></form>
+    <form id= "order3" action='/sort/importance' method='order3'><input type='submit' value='by Wichtigkeit'></form>
     <div class="space"></div>
   <form id= "makeInvivible" action='/' method='invisible'><input type='submit' value='Fertige verbergen'></form>
 </div>
@@ -72,7 +21,7 @@
         <div class="container3">
             <div class="container6">
                 {{#if finished}}
-                    <label><input type="checkbox" checked="true"  value="Finished" id="check1">Finished</label>
+                    <label><input type="checkbox" checked="true" value="Finished" id="check1">Finished</label>
                 {{else}}
                     <p>{{finishedTill}}</p>
                     <label><input type="checkbox" value="Finished" id="check2">Finished</label>
@@ -101,4 +50,3 @@
 {{else}}
     <p>Keine Notizen!</p>
 {{/if}}
-</html>

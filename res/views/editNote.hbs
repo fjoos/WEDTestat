@@ -1,14 +1,29 @@
-<html>
-<h1>Notiz ändern</h1>
-<div class="title"><p>Titel: {{title}}</p></div>
-<div class="importance"><p>Wichtigkeit: {{importance}}</p></div>
-<div class="finishedTill"><p>Fertig bis: {{finishedTill}}</p></div>
-<div class="finished"><p>Erledigt: {{#if finished}}
-    Ja
-{{else}}
-    Nein
-{{/if}}</p></div>
 
-<form action="/" method="post"><input type="submit" value="Speichern"></form>
-
-</html>
+<h1>Notiz Editieren</h1>
+<form action='/edit/{{_id}}/' method='post'>
+    <dd>
+        Titel:
+        <input title='Titel' type="text" name='title' value="{{title}}">
+    </dd>
+    <dd>
+        Beschreibung:
+        <input title='Beschreibung' type="text" name='description' value="{{description}}">
+    </dd>
+    <dd>
+        Wichtigkeit:
+        <input title='Wichtigkeit' type="number" name='importance' value="{{importance}}">
+    </dd>
+    <dd>
+        Fertig bis:
+        <input title='Fertig bis' type="date" name='finishedTill' value="{{finishedTill}}">
+    </dd>
+    <dd>
+        <input name='finished' type="checkbox" checked='{{finished}}'> Erledigt!
+    </dd>
+    <dd>
+        <input type='submit' value='Speichern'>
+    </dd>
+    </dt>
+</form>
+<form action='/del/{{_id}}/' method='post'><input type='submit' value='Löschen'></form>
+<form action='/' method='get'><input type='submit' value='Abbrechen'></form>
