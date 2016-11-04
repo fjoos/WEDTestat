@@ -1,5 +1,6 @@
 <body>
-<h1>Notiz Editieren</h1>
+<h1>Notiz Bearbeiten</h1>
+{{#each note}}
 <form action='/edit/{{_id}}/' method='post'>
     <dd>
         Titel:
@@ -11,15 +12,18 @@
     </dd>
     <dd>
         Wichtigkeit:
-        <input type="range" name="importance" id="importanceInputId" value="{{importance}}" min="1" max="5" oninput="importanceOutputId.value = importance.value">
-        <output name="importanceOutputName" id="importanceOutputId">{{importance}}</output>
+        <input pattern="[1-5]" name="importance" value="{{importance}}" required>
     </dd>
     <dd>
         Fertig bis:
-        <input title='Fertig bis' type="date" name='finishedTill' value="{{finishedTill}}" required>
+        <input pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" name='finishedTill' value="{{finishedTill}}" required>
     </dd>
     <dd>
-        <input name='finished' type="checkbox" checked='{{finished}}'> Erledigt!
+        {{#if finished}}
+            <input name='finished' type="checkbox" value="on" checked> Erledigt!
+        {{else}}
+            <input name='finished' type="checkbox" value="on"> Erledigt!
+        {{/if}}
     </dd>
     <dd>
         <input type='submit' value='Speichern'>
@@ -27,5 +31,6 @@
     </dt>
 </form>
 <form action='/del/{{_id}}/' method='post'><input type='submit' value='Löschen'></form>
+{{/each}}
 <form action='/' method='get'><input type='submit' value='Abbrechen'></form>
 </body>

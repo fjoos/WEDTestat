@@ -1,2 +1,4 @@
-{"created":"1478199815786","title":"test","description":"unerledigt","importance":"3","finishedTill":"1.1.1","_id":"27EHRKJmO6ZeZNYa"}
-{"created":"1478199839600","title":"test2","description":"erledigt","importance":"3","finishedTill":"45.3.1","finished":"1","_id":"IDWUIJfWRGd9JDr3"}
+{"created":"1478199815786","_id":"27EHRKJmO6ZeZNYa","title":"test1","description":"unerledigt","importance":"3","finishedTill":"1.5.17"}
+{"created":"1478199839600","title":"test2","description":"erledigt","importance":"3","finishedTill":"45.3.1","finished":"on","_id":"IDWUIJfWRGd9JDr3"}
+{"created":"1478293427355","title":"f","description":"fffwee","importance":"3","finishedTill":"grgr.grd.2fev","_id":"zVrqCs8rIOjUk6Hw"}
+{"$$deleted":true,"_id":"zVrqCs8rIOjUk6Hw"}

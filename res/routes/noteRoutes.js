@@ -10,7 +10,9 @@ var notes = require('../controller/noteController.js');
 router.get("/", notes.showIndex);
 router.get("/notes/", notes.showNotePad);
 router.get("/sort/:order/", notes.order);
+router.get("/style/", notes.styler);
 router.get("/invisible/", notes.invisible);
+
 router.post("/del/:id/", notes.deleteNote);
 router.get("/edit/:id/", notes.editNote);
 router.post("/edit/:id/", notes.saveEditedNote);

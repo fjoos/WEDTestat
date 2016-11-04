@@ -4,43 +4,66 @@
 var service = require("../service/noteService.js");
 var reverse = false;
 var invisible = false;
+var styleChanged = false;
+
 module.exports.showIndex = function(req, res){
-    service.getAll(function(err, note) {
-        if(note){
+    service.getAll(function(err, notes) {
+        if(notes){
             switch (req.session.order) {
                 case 'importance':
-                    note.sort(function (a, b) {
+                    notes.sort(function (a, b) {
                         return (sorting(a.importance, b.importance))
                     });
                     break;
                 case 'finishedTill':
-                    note.sort(function (a, b) {
+                    notes.sort(function (a, b) {
                         return (sorting(a.finishedTill, b.finishedTill))
                     });
                     break;
                 case 'created':
-                    note.sort(function (a, b) {
+                    notes.sort(function (a, b) {
                         return (sorting(a.created, b.created))
                     });
                     break;
             }
-            if(invisible){
-                res.render('index', {title: 'Alle Notizen', note : note.filter(function(a){return a.finished != '1'})});
+            if(invisible && !styleChanged){
+                res.render('index', {title: 'Alle Notizen', note : notes.filter(function(a){return a.finished != 'on'})});
+            }else if(invisible && styleChanged){
+                res.render('index', {title: 'Alle Notizen', note : notes.filter(function(a){return a.finished != 'on'}), style : true});
+            }else if(!invisible && styleChanged){
+                res.render('index', {title: 'Alle Notizen', note : notes, style : true});
             }else{
-                res.render('index', {title: 'Alle Notizen', note : note});
+                res.render('index', {title: 'Alle Notizen', note : notes})
             }
         }else{
-            res.render('index', {title: 'Alle Notizen'});
+            res.render('index', {title: 'Keine Notizen'});
         }});
 };
 
 module.exports.showNotePad = function(req, res){
-    res.render('new');
+    if(styleChanged){
+        res.render('new', {style : true});
+    }else{
+        res.render('new');
+    }
 };
 
 module.exports.editNote = function(req, res){
-    service.get(req.params.id, function(err, note){
-            res.render('edit', note);
+   service.getAll(function(err, notes)
+    {
+        if (styleChanged) {
+            res.render('edit', {
+                note: notes.filter(function (a) {
+                    return a._id == req.params.id
+                }), style: true
+            });
+        } else {
+            res.render('edit', {
+                note: notes.filter(function (a) {
+                    return a._id == req.params.id
+                })
+            });
+        }
     });
 };
 
@@ -74,6 +97,11 @@ module.exports.order = function(req, res){
 
 module.exports.invisible = function(req, res){
     invisible = !invisible;
+    res.redirect('/');
+};
+
+module.exports.styler = function(req, res){
+    styleChanged = !styleChanged;
     res.redirect('/');
 };
 

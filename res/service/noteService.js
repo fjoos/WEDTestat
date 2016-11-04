@@ -13,15 +13,6 @@ function Note(title, description, importance, finishedTill, finished)
     this.finishedTill = finishedTill;
     this.finished = finished;
 
-    function getCreation(){
-        return created;
-    }
-    function getImportance(){
-        return importance;
-    }
-    function getFinishedTill(){
-        return finishedTill;
-    }
 }
 
 function publicAddNote(title, description, importance, finishedTill, finished, callback)
@@ -47,9 +38,9 @@ function publicEdit(id, title, description, importance, finishedTill, finished, 
     });
 }
 
-function publicGet(id, callback)
-{   db.findOne({ _id: id }, function (err, doc) {
-    callback( err, doc);
+function publicGet(id, callback){
+    db.findOne({ _id: id }, function (err, note) {
+    callback(err, note);
 });
 }
 

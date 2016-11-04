@@ -3,7 +3,7 @@
 
 <div id="container">
     <form id= "newNote" action='/notes/' method='get'><input type='submit' value='Neue Notiz'></form>
-    <form id= "styler" action='/' method='style'><input type='submit' value='Style Wechseln'></form>
+    <form id= "styler" action='/style/' method='style'><input type='submit' value='Style Wechseln'></form>
 </div>
 <div id="container2">
     <form id= "order2" action='/sort/finishedTill/' method='order1'><input type='submit' value='by Fertigdatum'></form>
@@ -13,17 +13,16 @@
     <form id= "makeInvivible" action='/invisible' method='invisible'><input type='submit' value='Fertige verbergen'></form>
 </div>
 
-
-
 <header>{{title}}</header>
-{{#if note}}
     {{#each note}}
         <div class="container3">
             <div class="container6">
                 {{#if finished}}
-                    <label><input type="checkbox" id="check1" checked>Finished</label>
+                    <input type="checkbox" id="check1" checked readonly>
+                    <label for="check1">Erledigt</label>
                 {{else}}
-                    <label><input type="hidden" id="check2">Finished</label>
+                    <form action="/" method="post"><input type="checkbox" id="check2" readonly>
+                    <label for="check2">Erledigt</label></form>
                     <p>Zu Erledigen bis: {{finishedTill}}</p>
                 {{/if}}
             </div>
@@ -37,7 +36,4 @@
             <form action='/edit/{{_id}}' method='get'><input class="edit" type='submit' value='Editieren'></form>
         </div>
     {{/each}}
-{{else}}
-    <p>Keine Notizen!</p>
-{{/if}}
 </body>
