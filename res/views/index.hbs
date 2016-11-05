@@ -6,36 +6,39 @@
     <form id= "styler" action='/style/' method='style'><input type='submit' value='Style Wechseln'></form>
 </div>
 <div id="container2">
-    <form id= "order2" action='/sort/finishedTill/' method='order1'><input type='submit' value='by Fertigdatum'></form>
-    <form id= "order1" action='/sort/created/' method='order2'><input type='submit' value='by Erstelldatum'></form>
-    <form id= "order3" action='/sort/importance/' method='order3'><input type='submit' value='by Wichtigkeit'></form>
+    <form action='/sort/finishedTill/' method='order1'><input id= "order1" type='submit' value='by Fertigdatum'></form>
+    <form action='/sort/created/' method='order2'><input id= "order2" type='submit' value='by Erstelldatum'></form>
+    <form action='/sort/importance/' method='order3'><input id= "order3" type='submit' value='by Wichtigkeit'></form>
     <div class="space"></div>
-    <form id= "makeInvivible" action='/invisible' method='invisible'><input type='submit' value='Fertige verbergen'></form>
+    <form action='/invisible' method='invisible'><input id= "makeInvivible" type='submit' value='Fertige verbergen'></form>
 </div>
 
 <header>{{title}}</header>
     {{#each note}}
         <div class="container3">
-            <div class="container6">
-                {{#if finished}}
-                    <input type="checkbox" id="check1" checked readonly>
-                    <label for="check1">Erledigt</label>
-                {{else}}
-                    <form action="/" method="post"><input type="checkbox" id="check2" readonly>
-                    <label for="check2">Erledigt</label></form>
-                    <p>Zu Erledigen bis: {{finishedTill}}</p>
-                {{/if}}
-            </div>
+
             <div class="container4">
-                <div class="container5">
-                    <p>{{title}}</p>
-                    <div id="ImageContainer">
-                      <img id="star" src="/images/star{{importance}}.png">
-                    </div>
-                </div>
-                <textarea class="textarea" readonly>{{description}}</textarea>
+                <p>{{finishedTill}}</p>
+                <p class="title_space">{{title}}</p>
+                <div class="space"></div>
+                <img class="star" src="/images/star{{importance}}.png">
+
             </div>
-            <form action='/edit/{{_id}}' method='get'><input class="edit" type='submit' value='Bearbeiten'></form>
+
+
+
+            <div class="container5">
+                {{#if finished}}
+                <form action="/" method="post"><input type="checkbox" class="check" checked readonly>
+                    <label for="check">Erledigt</label></form>
+                {{else}}
+                    <form action="/" method="post"><input type="checkbox" class="check" readonly>
+                        <label for="check">Erledigt</label></form>
+                {{/if}}
+                <textarea class="textarea" readonly>{{description}}</textarea>
+                <form action='/edit/{{_id}}' method='get'><input class="edit" type='submit' value='Bearbeiten'></form>
+
+            </div>
         </div>
     {{/each}}
 </body>
