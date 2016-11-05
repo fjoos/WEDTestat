@@ -29,11 +29,13 @@
             <div class="container4">
                 <div class="container5">
                     <p>{{title}}</p>
-                    <p>{{importance}}</p>
+                    <div id="ImageContainer">
+                      <img id="star" src="/images/star{{importance}}.png">
+                    </div>
                 </div>
                 <textarea class="textarea" readonly>{{description}}</textarea>
             </div>
-            <form action='/edit/{{_id}}' method='get'><input class="edit" type='submit' value='Editieren'></form>
+            <form action='/edit/{{_id}}' method='get'><input class="edit" type='submit' value='Bearbeiten'></form>
         </div>
     {{/each}}
 </body>

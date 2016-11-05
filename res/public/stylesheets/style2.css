@@ -44,3 +44,7 @@ h1{
 .edit{
     height: 10%;
 }
+
+#ImageContainer, img{
+    width: 100px;
+}

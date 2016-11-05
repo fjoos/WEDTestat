@@ -33,6 +33,10 @@
     flex-direction: column;
 }
 
+#ImageContainer, img{
+    width: 100px;
+}
+
 .textarea{
     width: 100%;
 }

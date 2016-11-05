@@ -12,12 +12,12 @@ module.exports.showIndex = function(req, res){
             switch (req.session.order) {
                 case 'importance':
                     notes.sort(function (a, b) {
-                        return (sorting(a.importance, b.importance))
+                        return (sorting(b.importance, a.importance))
                     });
                     break;
                 case 'finishedTill':
                     notes.sort(function (a, b) {
-                        return (sorting(a.finishedTill, b.finishedTill))
+                        return (sorting(b.finishedTill, a.finishedTill))
                     });
                     break;
                 case 'created':
