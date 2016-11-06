@@ -1,36 +1,52 @@
 <body>
-<h1>Notiz Bearbeiten</h1>
-{{#each note}}
-<form action='/edit/{{_id}}/' method='post'>
-    <dd>
-        Titel:
-        <input title='Titel' type="text" name='title' value="{{title}}" placeholder='Titel' required>
-    </dd>
-    <dd>
-        Beschreibung:
-        <input title='Beschreibung' type="text" name='description' value="{{description}}" placeholder='Beschreibung' required>
-    </dd>
-    <dd>
-        Wichtigkeit:
-        <input pattern="[1-5]" name="importance" value="{{importance}}" placeholder='1-5' required>
-    </dd>
-    <dd>
-        Fertig bis:
-        <input pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" name='finishedTill' value="{{finishedTill}}" placeholder='dd.mm.yyyy' required>
-    </dd>
-    <dd>
-        {{#if finished}}
-            <input name='finished' type="checkbox" value="on" checked> Erledigt!
-        {{else}}
-            <input name='finished' type="checkbox" value="on"> Erledigt!
-        {{/if}}
-    </dd>
-    <dd>
-        <input type='submit' value='Speichern'>
-    </dd>
-    </dt>
-</form>
-<form action='/del/{{_id}}/' method='post'><input type='submit' value='Löschen'></form>
-{{/each}}
-<form action='/' method='get'><input type='submit' value='Abbrechen'></form>
+    <h1>Notiz Bearbeiten</h1>
+    {{#each note}}
+        <form id="new_edit_form" action='/edit/{{_id}}/' method='post'>
+            <div class="new_edit_content">
+                <p> Titel </p>
+                <input type="text" name='title' value="{{title}}" placeholder='Titel' required>
+            </div>
+
+            <div class="new_edit_content">
+                <p>Beschreibung</p>
+                <textarea type="text" name='description' value="{{description}}" placeholder='Beschreibung' required></textarea>
+            </div>
+
+            <div class="new_edit_content">
+                <p>Wichtigkeit</p>
+                <input pattern="[1-5]" name="importance" value="{{importance}}"  placeholder="1-5" required>
+            </div>
+
+            <div class="new_edit_content">
+                <p>Fertig bis</p>
+                <input pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" value="{{finishedTill}}" type="date" name='finishedTill' placeholder='dd.mm.yyyy' required>
+            </div>
+
+
+            <div class="new_edit_options">
+
+
+
+                {{#if finished}}
+                    <input name='finished' type="checkbox" value="on" checked>
+                    <p>Erledigt!</p>
+                {{else}}
+                    <input name='finished' type="checkbox" value="on">
+                    <p>Erledigt!</p>
+                {{/if}}
+            </div>
+
+            <div class="new_edit_options">
+                <input class="options" type='submit' value='Speichern'>
+            </div>
+        </form>
+
+        <div class="new_edit_options">
+            <form action='/del/{{_id}}/' method='post'><input id="new_edit_cancel" type='submit' value='Löschen'></form>
+        </div>
+        <div class="new_edit_options">
+            <form action='/' method='get'><input id="new_edit_cancel" type='submit' value='Abbrechen'></form>
+        </div>
+    {{/each}}
+
 </body>

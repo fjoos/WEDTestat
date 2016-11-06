@@ -2,6 +2,7 @@
 index
 */
 
+
 #index_newnote_styleswitch{
     display: flex;
     justify-content: space-between;
@@ -60,26 +61,26 @@ section{
 }
 
 /*
-new
+new & edit
 */
 
-.new_content{
+.new_edit_content{
     display:flex;
     flex-direction: column;
 }
 
-#new_form{
+#new_edit_form{
     display: flex;
     flex-direction: column;
 }
 
-.new_options{
+.new_edit_options{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-#new_cancel{
+#new_edit_cancel{
     margin-top:5px;
     width: 120px;
 }
@@ -132,22 +133,22 @@ new
     /*
     new
     */
-    .new_content{
+    .new_edit_content{
         flex-direction: row;
         margin-bottom: 5px;
 
     }
-    .new_content p{
+    .new_edit_content p{
         width:150px;
         text-align: right;
         margin:0px;
     }
-    .new_content input, textarea{
+    .new_edit_content input, textarea{
         margin-left: 10px;
         width: 100%;
     }
 
-    .new_options{
+    .new_edit_options{
         margin-left: 130px;
     }
 
