@@ -11,6 +11,7 @@ function Note(title, description, importance, finishedTill, finished)
     this.description = description;
     this.importance = importance;
     this.finishedTill = finishedTill;
+    this.finishedTo = finishedTill.toString();
     this.finished = finished;
 
 }
@@ -38,13 +39,6 @@ function publicEdit(id, title, description, importance, finishedTill, finished, 
     });
 }
 
-function publicGet(id, callback){
-    db.findOne({ _id: id }, function (err, note) {
-    callback(err, note);
-});
-}
-
-
 function publicAll(callback)
 {
     db.find({}, function (err, note) {
@@ -52,4 +46,4 @@ function publicAll(callback)
     });
 }
 
-module.exports = {add : publicAddNote, getAll : publicAll, get : publicGet, set : publicEdit, delete : publicDelete};
+module.exports = {add : publicAddNote, getAll : publicAll, set : publicEdit, delete : publicDelete};

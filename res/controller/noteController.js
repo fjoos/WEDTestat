@@ -17,7 +17,7 @@ module.exports.showIndex = function(req, res){
                     break;
                 case 'finishedTill':
                     notes.sort(function (a, b) {
-                        return (sorting(b.finishedTill, a.finishedTill))
+                        return (sorting(b.finishedTo, a.finishedTo))
                     });
                     break;
                 case 'created':
@@ -52,17 +52,9 @@ module.exports.editNote = function(req, res){
    service.getAll(function(err, notes)
     {
         if (styleChanged) {
-            res.render('edit', {
-                note: notes.filter(function (a) {
-                    return a._id == req.params.id
-                }), style: true
-            });
+            res.render('edit', {note : notes.filter(function (a) {return a._id == req.params.id}), style: true});
         } else {
-            res.render('edit', {
-                note: notes.filter(function (a) {
-                    return a._id == req.params.id
-                })
-            });
+            res.render('edit', {note : notes.filter(function (a) {return a._id == req.params.id})});
         }
     });
 };

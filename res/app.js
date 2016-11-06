@@ -52,4 +52,3 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-console.log('Server running at http://localhost:3002/');
