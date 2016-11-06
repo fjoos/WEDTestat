@@ -1,31 +1,43 @@
 <body>
 <h1>Neue Notiz</h1>
-<form action='/' method='post'>
-    <dt>
-    <dd>
-        Titel
-        <input type="text" name='title' placeholder='Titel' required>
-    </dd>
-    <dd>
-        Beschreibung
-        <input type="text" name='description' placeholder='Beschreibung' required>
-    </dd>
-    <dd>
-        Wichtigkeit
-        <input pattern="[1-5]" name="importance" placeholder="1-5" required>
-    </dd>
-    <dd>
-        Fertig bis
-        <input pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" name='finishedTill' placeholder='dd.mm.yyyy' required>
-    </dd>
-    <dd>
-        <input name='finished' type="checkbox" value="on">
-        Erledigt!
-    </dd>
-    <dd>
-        <input type='submit' value='Speichern'>
-    </dd>
-    </dt>
-</form>
-<form action='/' method='get'><input type='submit' value='Abbrechen'></form>
+    <form  id="new_form" action='/' method='post'>
+
+            <div class="new_content">
+                <p> Titel </p>
+                <input type="text" name='title' placeholder='Titel' required>
+            </div>
+
+
+            <div class="new_content">
+                <p>Beschreibung</p>
+                <textarea type="text" name='description' placeholder='Beschreibung' required></textarea>
+            </div>
+
+            <div class="new_content">
+                <p>Wichtigkeit</p>
+                <input pattern="[1-5]" name="importance" placeholder="1-5" required>
+            </div>
+
+
+            <div class="new_content">
+                <p>Fertig bis</p>
+                <input pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" name='finishedTill' placeholder='dd.mm.yyyy' required>
+            </div>
+
+            <div class="new_options">
+                <input name='finished' type="checkbox" value="on">
+                <p>Erledigt!</p>
+            </div>
+
+
+            <div class="new_options">
+                <input type='submit' value='Speichern'>
+
+                <form action='/' method='get'><input id="new_cancel" type='submit' value='Abbrechen'></form>
+            </div>
+
+    </form>
+
+
+
 </body>

@@ -1,15 +1,18 @@
-#container{
+/*
+index
+*/
+
+#index_newnote_styleswitch{
     display: flex;
     justify-content: space-between;
     margin-bottom: 0;
 }
 
-#order1, #order2, #order3, #makeInvivible{
-    width: 100%;
+.index_order{
+    width: 120px;
 }
 
-.container3{
-    display: flex;
+section{
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
@@ -18,11 +21,11 @@
     padding: 5px;
 }
 
-.star{
+.index_star{
     width: 100px;
 }
 
-.space{
+.index_space{
     flex:1;
 }
 
@@ -30,71 +33,122 @@
     padding-left: 10px;
 }
 
-.container4{
+.index_section_header{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     width: 100%;
 }
 
-.container5{
+.index_section_content{
     width: 100%;
     display: flex;
     flex-flow: column;
 }
 
-.textarea{
+.index_textarea{
     height: 50px;
     margin-bottom: 5px;
 }
 
-.edit{
+.index_edit{
     width: 100%;
 }
 
-.check{
+.index_check{
     margin-bottom: 10px;
+}
+
+/*
+new
+*/
+
+.new_content{
+    display:flex;
+    flex-direction: column;
+}
+
+#new_form{
+    display: flex;
+    flex-direction: column;
+}
+
+.new_options{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#new_cancel{
+    margin-left:5px;
 }
 
 @media (min-width: 450px)
 {
-    #container2{
+    #index_sort{
         display: flex;
         justify-content: flex-start;
     }
 
-    .container3{
+    section{
         border:none;
+        padding:0;
     }
 
-    .container4{
-        width: 92%;
+    .index_section_header{
+        width: 100%;
         flex-direction: row;
     }
 
-    .container5{
+    .index_section_content{
         flex-direction: row;
 
     }
 
-    .textarea{
+    .index_textarea{
         width: 100%;
         margin-left: 50px;
         margin-right: 10px;
     }
 
-    .edit{
+    .index_edit{
        height: 100%;
+        width: 120px;
     }
 
     form{
         display: flex;
     }
 
-    .title_space{
+    .index_title_space{
         padding-left: 50px;
     }
+    .index_star {
+        margin-right: 125px;
+    }
+
+    .new_content{
+        flex-direction: row;
+        margin-bottom: 5px;
+
+    }
+    .new_content p{
+        width:150px;
+        text-align: right;
+        margin:0px;
+    }
+    .new_content input, textarea{
+        margin-left: 10px;
+        width: 100%;
+    }
+
+    .new_options{
+        margin-left: 130px;
+    }
+
+
 }
+
 
 
 

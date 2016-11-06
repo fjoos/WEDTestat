@@ -1,44 +1,44 @@
 <body>
 <h1>Notizblock</h1>
 
-<div id="container">
-    <form id= "newNote" action='/notes/' method='get'><input type='submit' value='Neue Notiz'></form>
-    <form id= "styler" action='/style/' method='style'><input type='submit' value='Style Wechseln'></form>
+<div id="index_newnote_styleswitch">
+    <form id= "newNote" action='/notes/' method='get'><input class= "index_order" type='submit' value='Neue Notiz'></form>
+    <form id= "styler" action='/style/' method='style'><input class= "index_order" type='submit' value='Style Wechseln'></form>
 </div>
-<div id="container2">
-    <form action='/sort/finishedTill/' method='order1'><input id= "order1" type='submit' value='by Fertigdatum'></form>
-    <form action='/sort/created/' method='order2'><input id= "order2" type='submit' value='by Erstelldatum'></form>
-    <form action='/sort/importance/' method='order3'><input id= "order3" type='submit' value='by Wichtigkeit'></form>
-    <div class="space"></div>
-    <form action='/invisible' method='invisible'><input id= "makeInvivible" type='submit' value='Fertige verbergen'></form>
+<div id="index_sort">
+    <form action='/sort/finishedTill/' method='order1'><input class= "index_order" type='submit' value='by Fertigdatum'></form>
+    <form action='/sort/created/' method='order2'><input class= "index_order" type='submit' value='by Erstelldatum'></form>
+    <form action='/sort/importance/' method='order3'><input class= "index_order" type='submit' value='by Wichtigkeit'></form>
+    <div class="index_space"></div>
+    <form action='/invisible' method='invisible'><input class= "index_order" type='submit' value='Fertige verbergen'></form>
 </div>
 
 <header>{{title}}</header>
     {{#each note}}
-        <div class="container3">
+        <section>
 
-            <div class="container4">
+            <div class="index_section_header">
                 <p>{{finishedTill}}</p>
-                <p class="title_space">{{title}}</p>
-                <div class="space"></div>
-                <img class="star" src="/images/star{{importance}}.png">
+                <p class="index_title_space">{{title}}</p>
+                <div class="index_space"></div>
+                <img class="index_star" src="/images/star{{importance}}.png">
 
             </div>
 
 
 
-            <div class="container5">
+            <div class="index_section_content">
                 {{#if finished}}
-                <form action="/" method="post"><input type="checkbox" class="check" checked readonly>
-                    <label for="check">Erledigt</label></form>
+                <form action="/" method="post"><input type="checkbox" class="index_check" checked readonly>
+                    <label for=check">Erledigt</label></form>
                 {{else}}
-                    <form action="/" method="post"><input type="checkbox" class="check" readonly>
+                    <form action="/" method="post"><input type="checkbox" class="index_check" readonly>
                         <label for="check">Erledigt</label></form>
                 {{/if}}
-                <textarea class="textarea" readonly>{{description}}</textarea>
-                <form action='/edit/{{_id}}' method='get'><input class="edit" type='submit' value='Bearbeiten'></form>
+                <textarea class="index_textarea" readonly>{{description}}</textarea>
+                <form action='/edit/{{_id}}"' method='get'><input class="index_edit" type='submit' value='Bearbeiten'></form>
 
             </div>
-        </div>
+        </section>
     {{/each}}
 </body>
