@@ -2,15 +2,15 @@
 <h1>Notizblock</h1>
 
 <div id="index_newnote_styleswitch">
-    <form id= "newNote" action='/notes/' method='get'><input class= "index_order" type='submit' value='Neue Notiz'></form>
-    <form id= "styler" action='/style/' method='style'><input class= "index_order" type='submit' value='Style Wechseln'></form>
+    <form id= "newNote" action='/notes/' method='get'><input class= "options" type='submit' value='Neue Notiz'></form>
+    <form id= "styler" action='/style/' method='style'><input class= "options" type='submit' value='Style Wechseln'></form>
 </div>
 <div id="index_sort">
-    <form action='/sort/finishedTill/' method='order1'><input class= "index_order" type='submit' value='by Fertigdatum'></form>
-    <form action='/sort/created/' method='order2'><input class= "index_order" type='submit' value='by Erstelldatum'></form>
-    <form action='/sort/importance/' method='order3'><input class= "index_order" type='submit' value='by Wichtigkeit'></form>
+    <form action='/sort/finishedTill/' method='order1'><input class= "options" type='submit' value='by Fertigdatum'></form>
+    <form action='/sort/created/' method='order2'><input class= "options" type='submit' value='by Erstelldatum'></form>
+    <form action='/sort/importance/' method='order3'><input class= "options" type='submit' value='by Wichtigkeit'></form>
     <div class="index_space"></div>
-    <form action='/invisible' method='invisible'><input class= "index_order" type='submit' value='Fertige verbergen'></form>
+    <form action='/invisible' method='invisible'><input class= "options" type='submit' value='Fertige verbergen'></form>
 </div>
 
 <header>{{title}}</header>
