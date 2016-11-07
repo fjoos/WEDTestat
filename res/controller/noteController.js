@@ -32,11 +32,11 @@ module.exports.showIndex = function(req, res){
                 res.render('index', {title: 'Alle Notizen', note : notes.filter(function(a){return a.finished != 'on'}), style : true});
             }else if(!invisible && styleChanged){
                 res.render('index', {title: 'Alle Notizen', note : notes, style : true});
-            }else{
+            }else if(notes[0]){
                 res.render('index', {title: 'Alle Notizen', note : notes})
+            }else{
+                res.render('index', {title: 'Keine Notizen'});
             }
-        }else{
-            res.render('index', {title: 'Keine Notizen'});
         }});
 };
 
