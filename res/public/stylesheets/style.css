@@ -10,7 +10,7 @@ index
 }
 
 .options{
-    width: 120px;
+    width: 100%;
 }
 
 section{
@@ -152,7 +152,9 @@ new & edit
         margin-left: 130px;
     }
 
-
+    .options{
+        width: 120px;
+    }
 }
 
 
