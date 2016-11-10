@@ -5,6 +5,7 @@ var service = require("../service/noteService.js");
 var reverse = false;
 var invisible = false;
 var styleChanged = false;
+var title = 'Alle Notizen';
 
 module.exports.showIndex = function(req, res){
     service.getAll(function(err, notes) {
@@ -19,24 +20,39 @@ module.exports.showIndex = function(req, res){
                     notes.sort(function (a, b) {
                         return (sorting(b.finishedTo, a.finishedTo))
                     });
-                    break;
                 case 'created':
                     notes.sort(function (a, b) {
                         return (sorting(a.created, b.created))
                     });
                     break;
             }
-            if(invisible && !styleChanged){
-                res.render('index', {title: 'Alle Notizen', note : notes.filter(function(a){return a.finished != 'on'})});
-            }else if(invisible && styleChanged){
-                res.render('index', {title: 'Alle Notizen', note : notes.filter(function(a){return a.finished != 'on'}), style : true});
-            }else if(!invisible && styleChanged){
-                res.render('index', {title: 'Alle Notizen', note : notes, style : true});
-            }else if(notes[0]){
-                res.render('index', {title: 'Alle Notizen', note : notes})
-            }else{
-                res.render('index', {title: 'Keine Notizen'});
+            switch(invisible){
+                case true:
+                    if(notes.filter(function(a){return a.finished != 'on'})[0]){
+                        title = 'Alle Notizen'
+                    }else{
+                        title = 'Keine Notizen'
+                    }
+                    if(styleChanged){
+                        res.render('index', {title: title, note : notes.filter(function(a){return a.finished != 'on'}), style : true});
+                    }else{
+                        res.render('index', {title: title, note : notes.filter(function(a){return a.finished != 'on'})});
+                    }
+                    break;
+                case false:
+                    if(notes[0]){
+                        title = 'Alle Notizen'
+                    }else{
+                        title = 'Keine Notizen'
+                    }
+                    if(styleChanged){
+                        res.render('index', {title: title, note : notes, style : true});
+                    }else{
+                        res.render('index', {title: title, note : notes});
+                    }
+                    break;
             }
+
         }});
 };
 
