@@ -15,15 +15,31 @@ module.exports.showIndex = function(req, res){
                     notes.sort(function (a, b) {
                         return (sorting(b.importance, a.importance))
                     });
+                    if(!reverse){
+                        req.session.sorting = 'importanceUp';
+                    }else{
+                        req.session.sorting = 'importanceDown';
+                    }
                     break;
                 case 'finishedTill':
                     notes.sort(function (a, b) {
                         return (sorting(b.finishedTo, a.finishedTo))
                     });
+                    if(!reverse){
+                        req.session.sorting = 'finishedUp';
+                    }else{
+                        req.session.sorting = 'finishedDown';
+                    }
+                    break;
                 case 'created':
                     notes.sort(function (a, b) {
                         return (sorting(a.created, b.created))
                     });
+                    if(!reverse){
+                        req.session.sorting = 'createdUp';
+                    }else{
+                        req.session.sorting = 'createdDown';
+                    }
                     break;
             }
             switch(invisible){
@@ -34,9 +50,9 @@ module.exports.showIndex = function(req, res){
                         title = 'Keine Notizen'
                     }
                     if(styleChanged){
-                        res.render('index', {title: title, note : notes.filter(function(a){return a.finished != 'on'}), style : true});
+                        res.render('index', {title: title, note : notes.filter(function(a){return a.finished != 'on'}), style : true, sorting: req.session.sorting, invisible: invisible});
                     }else{
-                        res.render('index', {title: title, note : notes.filter(function(a){return a.finished != 'on'})});
+                        res.render('index', {title: title, note : notes.filter(function(a){return a.finished != 'on'}), sorting: req.session.sorting, invisible: invisible});
                     }
                     break;
                 case false:
@@ -46,9 +62,9 @@ module.exports.showIndex = function(req, res){
                         title = 'Keine Notizen'
                     }
                     if(styleChanged){
-                        res.render('index', {title: title, note : notes, style : true});
+                        res.render('index', {title: title, note : notes, style : true, sorting: req.session.sorting, invisible: invisible});
                     }else{
-                        res.render('index', {title: title, note : notes});
+                        res.render('index', {title: title, note : notes, sorting: req.session.sorting, invisible: invisible});
                     }
                     break;
             }

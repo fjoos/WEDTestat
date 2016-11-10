@@ -2,15 +2,48 @@
     <h1>Notizblock</h1>
 
     <div id="index_newnote_styleswitch">
-        <form id= "newNote" action='/notes/' method='get'><input class= "options" type='submit' value='Neue Notiz'></form>
-        <form id= "styler" action='/style/' method='get'><input class= "options" type='submit' value='Style Wechseln'></form>
+        <form id= "newNote" action='/notes/' method='get'><button class= "options" type='submit'>
+            Neue Notiz
+        </button></form>
+        <form id= "styler" action='/style/' method='get'><button class= "options" type='submit'>
+            Style Wechseln
+        </button></form>
     </div>
     <div id="index_sort">
-        <form action='/sort/finishedTill/' method='get'><input class= "options" type='submit' value='by Fertigdatum'></form>
-        <form action='/sort/created/' method='get'><input class= "options" type='submit' value='by Erstelldatum'></form>
-        <form action='/sort/importance/' method='get'><input class= "options" type='submit' value='by Wichtigkeit'></form>
+        <form action='/sort/finishedTill/' method='get'><button class= "options" type='submit'>
+            Fertig bis
+            {{#equal sorting 'finishedUp'}}
+                ↑
+            {{/equal}}
+            {{#equal sorting 'finishedDown'}}
+                ↓
+            {{/equal}}
+        </button></form>
+        <form action='/sort/created/' method='get'><button class= "options" type='submit'>
+            Erstellt am
+            {{#equal sorting 'createdUp'}}
+                ↑
+            {{/equal}}
+            {{#equal sorting 'createdDown'}}
+                ↓
+            {{/equal}}
+        </button></form>
+        <form action='/sort/importance/' method='get'><button class= "options" type='submit'>
+            Wichtigkeit
+            {{#equal sorting 'importanceUp'}}
+                ↑
+            {{/equal}}
+            {{#equal sorting 'importanceDown'}}
+                ↓
+            {{/equal}}
+        </button></form>
         <div class="index_space"></div>
-        <form action='/invisible' method='get'><input class= "options" type='submit' value='Fertige verbergen'></form>
+        <form action='/invisible' method='get'><button class= "options" type='submit'>
+            Fertige verbergen
+            {{#equal invisible true}}
+                ✓
+            {{/equal}}
+        </button></form>
     </div>
     <h2>{{title}}</h2>
 

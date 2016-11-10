@@ -5,7 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
+var handlebars = require('express-hbs');
+handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
+  if (arguments.length < 3)
+    throw new Error("Handlebars Helper equal needs 2 parameters");
+  if (lvalue != rvalue) {
+    return options.inverse(this);
+  } else {
+    return options.fn(this);
+  }
+});
 
 // now you should have the require helper
 var index = require('./routes/noteRoutes');
@@ -14,6 +23,7 @@ var users = require('./routes/users');
 var app = express();
 
 // view engine setup
+app.engine('hbs', handlebars.express4({ defaultLayout: path.join(__dirname, './views/layout') }));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
