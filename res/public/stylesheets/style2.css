@@ -1,6 +1,3 @@
-/*
-index
-*/
 *{
     color:white;
     background: black;
@@ -9,11 +6,6 @@ index
 input, textarea{
     background-color:blue;
 }
-/*
-index
-*/
-
-
 #index_newnote_styleswitch{
     display: flex;
     justify-content: space-between;

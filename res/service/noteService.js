@@ -6,12 +6,12 @@ var db = new Datastore({ filename: "../data/note.db", autoload: true });
 
 function Note(title, description, importance, finishedTill, finished)
 {
-    this.created = Date.now().toString();
+    this.created = Date.now();
     this.title = title;
     this.description = description;
     this.importance = importance;
     this.finishedTill = finishedTill;
-    this.finishedTo = finishedTill.toString();
+    this.finishedTo = new Date(finishedTill);
     this.finished = finished;
 
 }
