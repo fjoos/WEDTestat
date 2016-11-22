@@ -55,6 +55,9 @@ section{
 .index_check{
     margin-bottom: 10px;
 }
+.index_title_space{
+    padding-left:10px;
+}
 
 /*
 new & edit
@@ -78,7 +81,7 @@ new & edit
 
 #new_edit_cancel{
     margin-top:5px;
-    width: 120px;
+    width: 100%;
 }
 
 @media (min-width: 600px)
@@ -119,7 +122,7 @@ new & edit
     }
 
     .index_title_space{
-        padding-left: 50px;
+        padding-left: 65px;
     }
     .index_star {
         margin-right: 125px;
@@ -130,7 +133,7 @@ new & edit
         margin-bottom: 5px;
 
     }
-    .new_edit_content p{
+    .new_edit_content label{
         width:150px;
         text-align: right;
         margin:0px;
@@ -146,6 +149,10 @@ new & edit
 
     .options{
         width: 120px;
+    }
+
+    #new_edit_cancel{
+        width:120px;
     }
 }
 

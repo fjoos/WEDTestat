@@ -51,8 +51,8 @@
         <section>
 
             <div class="index_section_header">
-                <p>{{finishedTill}}</p>
-                <p class="index_title_space">{{title}}</p>
+                <label>{{finishedTill}}</label>
+                <label class="index_title_space">{{title}}</label>
                 <div class="index_space"></div>
                 <img class="index_star" src="/images/star{{importance}}.png">
 
@@ -62,14 +62,14 @@
 
             <div class="index_section_content">
                 {{#if finished}}
-                <form action="/" method="post"><input type="checkbox" class="index_check" checked readonly>
+                <form action="/" method="post"><input type="checkbox" class="index_check" checked disabled>
                     <label for=check">Erledigt</label></form>
                 {{else}}
-                    <form action="/" method="post"><input type="checkbox" class="index_check" readonly>
+                    <form action="/" method="post"><input type="checkbox" class="index_check" disabled>
                         <label for="check">Erledigt</label></form>
                 {{/if}}
                 <textarea class="index_textarea" readonly>{{description}}</textarea>
-                <form action='/edit/{{_id}}' method='get'><input class="index_edit" type='submit' value='Bearbeiten'></form>
+                <form action='/edit/{{_id}}' method='get'><button class="index_edit" type='submit' value='Bearbeiten'>Bearbeiten</button></form>
 
             </div>
         </section>

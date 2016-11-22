@@ -3,22 +3,22 @@
     {{#each note}}
         <form id="new_edit_form" action='/edit/{{_id}}/' method='post'>
             <div class="new_edit_content">
-                <p> Titel </p>
+                <label> Titel </label>
                 <input type="text" name='title' value="{{title}}" placeholder='Titel' required>
             </div>
 
             <div class="new_edit_content">
-                <p>Beschreibung</p>
+                <label>Beschreibung</label>
                 <textarea type="text" name='description' placeholder='Beschreibung' required>{{description}}</textarea>
             </div>
 
             <div class="new_edit_content">
-                <p>Wichtigkeit</p>
+                <label>Wichtigkeit</label>
                 <input pattern="[1-5]" name="importance" value="{{importance}}"  placeholder="1-5" required>
             </div>
 
             <div class="new_edit_content">
-                <p>Fertig bis</p>
+                <label>Fertig bis</label>
                 <input pattern="(((0?[1-9]|1[0-9]|2[0-9]|3[01]).(0?[13578]|1[02]))|((0?[1-9]|1[0-9]|2[0-9]|3[0]).(0?[469]|11))|((0?[1-9]|1[0-9]|2[0-9]).(0?2))).(20((1[6-9])|([2-9][0-9])))" value="{{finishedTill}}" type="date" name='finishedTill' placeholder='dd.mm.yyyy' required>
 
             </div>
@@ -30,23 +30,23 @@
 
                 {{#if finished}}
                     <input name='finished' type="checkbox" value="on" checked>
-                    <p>Erledigt!</p>
+                    <label>Erledigt!</label>
                 {{else}}
                     <input name='finished' type="checkbox" value="on">
-                    <p>Erledigt!</p>
+                    <label>Erledigt!</label>
                 {{/if}}
             </div>
 
             <div class="new_edit_options">
-                <input class="options" type='submit' value='Speichern'>
+                <button class="options" type='submit' value='Speichern'>Speichern</button>
             </div>
         </form>
 
         <div class="new_edit_options">
-            <form action='/del/{{_id}}/' method='post'><input id="new_edit_cancel" type='submit' value='Löschen'></form>
+            <form action='/del/{{_id}}/' method='post'><button id="new_edit_cancel" type='submit' value='Löschen'>Löschen</button></form>
         </div>
         <div class="new_edit_options">
-            <form action='/' method='get'><input id="new_edit_cancel" type='submit' value='Abbrechen'></form>
+            <form action='/' method='get'><button id="new_edit_cancel" type='submit' value='Abbrechen'>Abbrechen</button></form>
         </div>
     {{/each}}
 
